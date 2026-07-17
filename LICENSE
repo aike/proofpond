@@ -3,7 +3,7 @@ MIT License
 Copyright (c) 2026 aike (@aike1000)
 
 This license applies to the source code of this project, EXCLUDING the
-files under src/content/problems/. The files under src/content/problems/
+JSON files under src/content/. The JSON files under src/content/
 are not covered by this license, and all rights to them are reserved.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

@@ -83,4 +83,4 @@ src/
 
 Copyright (c) aike (@aike1000)
 
-The source code of this project is licensed under the MIT License, **except for the files under `src/content/problems/`**, which are excluded from the MIT License. All rights to those files are reserved.
+The source code of this project is licensed under the MIT License, **except for the JSON files under `src/content/`**, which are excluded from the MIT License. All rights to those files are reserved.
