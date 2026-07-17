@@ -1,0 +1,67 @@
+{
+  "id": "injective-kernel",
+  "title": "単射と核の関係",
+  "statement": "線形写像 $T: V \\to W$ について、$T$ が単射であることと $\\operatorname{Ker} T = \\{\\mathbf{0}\\}$ であることは同値であることを示せ。",
+  "difficulty": 2,
+  "knowledgeIds": [
+    "injective-def",
+    "kernel-def",
+    "linear-map-def",
+    "linear-map-zero",
+    "iff-split-technique",
+    "subtract-technique"
+  ],
+  "finalGoal": {
+    "statement": "(⇒) $T$ が単射 $\\Rightarrow \\operatorname{Ker} T = \\{\\mathbf{0}\\}$ と、(⇐) $\\operatorname{Ker} T = \\{\\mathbf{0}\\} \\Rightarrow T$ は単射、の両方向を示す。",
+    "why": "「$P$ と $Q$ が同値である($P \\iff Q$)」という主張は、論理的には「$P \\Rightarrow Q$ かつ $Q \\Rightarrow P$」と同じ意味である。したがって2つの含意をそれぞれ証明すれば、その2つを合わせたものが「同値である」ことの証明そのものになる。片方向だけでは同値を示したことにならない点に注意。",
+    "howToFind": "必要な知識は「同値証明の分割」($\\iff$ は $\\Rightarrow$ と $\\Leftarrow$ に分解する)、そして各方向を具体化するための「単射の定義」と「核の定義」。発想方法は2段階ある。第一に、$\\iff$ を見たら機械的に2方向に分けること——これは考えるまでもなく適用してよい定石である。第二に、分けた各方向について、仮定と結論を定義の形に書き下すこと。「単射」は「$T(\\mathbf{x}) = T(\\mathbf{y}) \\Rightarrow \\mathbf{x} = \\mathbf{y}$」、「$\\operatorname{Ker} T = \\{\\mathbf{0}\\}$」は「$T(\\mathbf{v}) = \\mathbf{0}$ ならば $\\mathbf{v} = \\mathbf{0}$」と具体化した時点で、両者を線形性で橋渡しする道筋が見えてくる。"
+  },
+  "subgoals": [
+    {
+      "id": "split-iff",
+      "title": "同値の証明を2つの方向に分ける",
+      "description": "それぞれの方向で「何を仮定して何を示すのか」を先に書き出す。",
+      "hints": [
+        { "level": 1, "text": "「同値であることを示せ」と言われたら、証明はふつう、いくつの部分に分かれる?" },
+        { "level": 2, "text": "「同値証明の分割」: (⇒) と (⇐) の2方向に分け、各方向の仮定と結論を冒頭に書いておくと迷子にならない。" }
+      ],
+      "solution": "「$T$ が単射 $\\iff \\operatorname{Ker} T = \\{\\mathbf{0}\\}$」を示すため、次の2つを示す。\n(⇒) $T$ が単射であると仮定して、$\\operatorname{Ker} T = \\{\\mathbf{0}\\}$ を示す。\n(⇐) $\\operatorname{Ker} T = \\{\\mathbf{0}\\}$ と仮定して、$T$ が単射であることを示す。"
+    },
+    {
+      "id": "forward",
+      "title": "(⇒) 単射ならば Ker T = {0} を示す",
+      "hints": [
+        { "level": 1, "text": "集合の等式 $\\operatorname{Ker} T = \\{\\mathbf{0}\\}$ を示すには、何を言えばよいだろうか。" },
+        { "level": 2, "text": "$\\mathbf{0} \\in \\operatorname{Ker} T$ は「線形写像は零を零に写す」から常に成り立つ。残りは $\\operatorname{Ker} T \\subseteq \\{\\mathbf{0}\\}$、つまり「$T(\\mathbf{v}) = \\mathbf{0}$ ならば $\\mathbf{v} = \\mathbf{0}$」を示せばよい。" },
+        { "level": 3, "text": "$\\mathbf{v} \\in \\operatorname{Ker} T$ とすると $T(\\mathbf{v}) = \\mathbf{0} = T(\\mathbf{0})$。ここで単射の仮定を使うと?" },
+        { "level": 4, "text": "$T(\\mathbf{v}) = T(\\mathbf{0})$ と単射性から $\\mathbf{v} = \\mathbf{0}$。よって $\\operatorname{Ker} T \\subseteq \\{\\mathbf{0}\\}$ となり、逆向きの包含と合わせて $\\operatorname{Ker} T = \\{\\mathbf{0}\\}$。" }
+      ],
+      "solution": "(⇒) $T$ を単射とする。線形写像の性質より $T(\\mathbf{0}) = \\mathbf{0}$ なので $\\mathbf{0} \\in \\operatorname{Ker} T$、すなわち $\\{\\mathbf{0}\\} \\subseteq \\operatorname{Ker} T$。\n逆に $\\mathbf{v} \\in \\operatorname{Ker} T$ とすると $T(\\mathbf{v}) = \\mathbf{0} = T(\\mathbf{0})$ であり、$T$ の単射性より $\\mathbf{v} = \\mathbf{0}$。よって $\\operatorname{Ker} T \\subseteq \\{\\mathbf{0}\\}$。\n両方の包含より $\\operatorname{Ker} T = \\{\\mathbf{0}\\}$ である。"
+    },
+    {
+      "id": "backward",
+      "title": "(⇐) Ker T = {0} ならば単射であることを示す",
+      "hints": [
+        { "level": 1, "text": "単射の定義に従うと、何を仮定して何を導けばよい?" },
+        { "level": 2, "text": "$T(\\mathbf{x}) = T(\\mathbf{y})$ と仮定する。この式を「差」の形に直せないか?(「差をとって零に帰着」)" },
+        { "level": 3, "text": "線形性から $T(\\mathbf{x} - \\mathbf{y}) = T(\\mathbf{x}) - T(\\mathbf{y}) = \\mathbf{0}$。つまり $\\mathbf{x} - \\mathbf{y} \\in \\operatorname{Ker} T$。仮定 $\\operatorname{Ker} T = \\{\\mathbf{0}\\}$ を使うと?" },
+        { "level": 4, "text": "$\\mathbf{x} - \\mathbf{y} \\in \\operatorname{Ker} T = \\{\\mathbf{0}\\}$ より $\\mathbf{x} - \\mathbf{y} = \\mathbf{0}$、すなわち $\\mathbf{x} = \\mathbf{y}$。よって $T$ は単射。" }
+      ],
+      "solution": "(⇐) $\\operatorname{Ker} T = \\{\\mathbf{0}\\}$ とする。$T(\\mathbf{x}) = T(\\mathbf{y})$ を満たす $\\mathbf{x}, \\mathbf{y} \\in V$ をとると、$T$ の線形性より\n$$T(\\mathbf{x} - \\mathbf{y}) = T(\\mathbf{x}) - T(\\mathbf{y}) = \\mathbf{0}$$\nすなわち $\\mathbf{x} - \\mathbf{y} \\in \\operatorname{Ker} T = \\{\\mathbf{0}\\}$。よって $\\mathbf{x} - \\mathbf{y} = \\mathbf{0}$、つまり $\\mathbf{x} = \\mathbf{y}$ となり、$T$ は単射である。"
+    },
+    {
+      "id": "conclude",
+      "title": "両方向をまとめて結論を書く",
+      "hints": [
+        { "level": 1, "text": "2つの方向が示せたことを明示して、証明を締めくくる。" },
+        { "level": 2, "text": "「以上 (⇒)(⇐) より、$T$ が単射 $\\iff \\operatorname{Ker} T = \\{\\mathbf{0}\\}$ が示された」のように結ぶ。" }
+      ],
+      "solution": "以上 (⇒)(⇐) より、$T$ が単射であることと $\\operatorname{Ker} T = \\{\\mathbf{0}\\}$ であることは同値である。$\\blacksquare$"
+    }
+  ],
+  "overallHints": [
+    { "level": 1, "text": "同値証明なので2方向。どちらの方向でも、単射の定義と Ker を橋渡しするのは $T$ の線形性である。" },
+    { "level": 2, "text": "鍵になる変形は $T(\\mathbf{x}) = T(\\mathbf{y}) \\iff T(\\mathbf{x} - \\mathbf{y}) = \\mathbf{0}$。これで単射の条件を Ker の言葉に翻訳できる。" }
+  ],
+  "tags": ["線形写像", "単射", "核"]
+}

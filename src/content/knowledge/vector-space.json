@@ -1,0 +1,47 @@
+[
+  {
+    "id": "subspace-def",
+    "name": "部分空間の定義",
+    "kind": "definition",
+    "statement": "ベクトル空間 $V$ の空でない部分集合 $W$ が次の3条件を満たすとき、$W$ を $V$ の部分空間という。\n(i) $\\mathbf{0} \\in W$\n(ii) $\\mathbf{u}, \\mathbf{v} \\in W \\Rightarrow \\mathbf{u} + \\mathbf{v} \\in W$(加法閉性)\n(iii) $\\mathbf{u} \\in W,\\ c \\in \\mathbb{R} \\Rightarrow c\\mathbf{u} \\in W$(スカラー倍閉性)",
+    "relatedIds": ["zero-vector", "closed-add", "closed-scalar", "subspace-check-technique"],
+    "usage": "「W が部分空間であることを示せ」という問題では、この3条件を1つずつ確認する。",
+    "tags": ["部分空間", "ベクトル空間"]
+  },
+  {
+    "id": "zero-vector",
+    "name": "零ベクトル",
+    "kind": "definition",
+    "statement": "すべての $\\mathbf{v} \\in V$ に対して $\\mathbf{v} + \\mathbf{0} = \\mathbf{v}$ を満たすベクトル $\\mathbf{0}$。$\\mathbb{R}^3$ では $(0, 0, 0)$ である。",
+    "relatedIds": ["subspace-def"],
+    "usage": "部分空間の判定では、まず零ベクトルが集合の条件式を満たすかを代入して確かめる。",
+    "tags": ["ベクトル空間"]
+  },
+  {
+    "id": "closed-add",
+    "name": "加法閉性",
+    "kind": "property",
+    "statement": "集合 $W$ が加法で閉じているとは、任意の $\\mathbf{u}, \\mathbf{v} \\in W$ に対して $\\mathbf{u} + \\mathbf{v} \\in W$ が成り立つこと。",
+    "relatedIds": ["subspace-def", "closed-scalar"],
+    "usage": "W の一般の元を2つ文字でおき、その和が W の条件式を満たすことを計算で確かめる。",
+    "tags": ["部分空間"]
+  },
+  {
+    "id": "closed-scalar",
+    "name": "スカラー倍閉性",
+    "kind": "property",
+    "statement": "集合 $W$ がスカラー倍で閉じているとは、任意の $\\mathbf{u} \\in W$ と $c \\in \\mathbb{R}$ に対して $c\\mathbf{u} \\in W$ が成り立つこと。",
+    "relatedIds": ["subspace-def", "closed-add"],
+    "usage": "W の一般の元を文字でおき、そのスカラー倍が W の条件式を満たすことを計算で確かめる。",
+    "tags": ["部分空間"]
+  },
+  {
+    "id": "subspace-check-technique",
+    "name": "部分空間判定の典型手順",
+    "kind": "technique",
+    "statement": "部分集合 $W$ が条件式で定義されているとき:\n① 零ベクトルを条件式に代入して $\\mathbf{0} \\in W$ を確認する。\n② $W$ の元を成分や文字でおき、和が条件式を満たすか計算する。\n③ スカラー倍についても同様に計算する。",
+    "relatedIds": ["subspace-def"],
+    "usage": "条件式が「線形な等式」で書かれている集合は部分空間になることが多い。",
+    "tags": ["部分空間", "証明手順"]
+  }
+]

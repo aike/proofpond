@@ -1,0 +1,56 @@
+[
+  {
+    "id": "regular-matrix-def",
+    "name": "正則行列の定義",
+    "kind": "definition",
+    "statement": "$n$ 次正方行列 $A$ が正則であるとは、$AA^{-1} = A^{-1}A = E$($E$ は単位行列)を満たす行列 $A^{-1}$(逆行列)が存在すること。",
+    "relatedIds": ["zero-matrix", "inverse-multiply-technique", "regular-iff-det"],
+    "usage": "「正則でない」ことの証明では、「正則だと仮定すると矛盾する」という背理法がよく使われる。",
+    "tags": ["行列", "正則"]
+  },
+  {
+    "id": "zero-matrix",
+    "name": "零行列",
+    "kind": "definition",
+    "statement": "すべての成分が $0$ の行列 $O$。任意の行列 $A$ に対して $AO = OA = O$ が成り立つ。",
+    "relatedIds": ["regular-matrix-def"],
+    "usage": "「$AB = O$ だが $A \\neq O$ かつ $B \\neq O$」となる例(零因子)が存在するのが、数の掛け算と行列の掛け算の大きな違い。",
+    "tags": ["行列"]
+  },
+  {
+    "id": "inverse-multiply-technique",
+    "name": "逆行列を掛けて消す",
+    "kind": "technique",
+    "statement": "$A$ が正則のとき、等式の両辺に $A^{-1}$ を掛けると $A$ を消去できる。例えば $AB = C$ の両辺に左から $A^{-1}$ を掛ければ $B = A^{-1}C$。行列の積は交換できないので、左右どちらから掛けるかを間違えないこと。",
+    "relatedIds": ["regular-matrix-def"],
+    "usage": "正則性が仮定された(または背理法で仮定した)行列を式から消して、残りの行列の情報を取り出す。",
+    "tags": ["行列", "証明手順"]
+  },
+  {
+    "id": "det-2x2",
+    "name": "2次の行列式",
+    "kind": "definition",
+    "statement": "$A = \\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}$ に対して $\\det A = ad - bc$。",
+    "relatedIds": ["regular-iff-det", "adjugate-2x2"],
+    "usage": "2次行列の正則性の判定と、逆行列の公式に現れる。",
+    "tags": ["行列", "行列式"]
+  },
+  {
+    "id": "regular-iff-det",
+    "name": "正則性と行列式(2次)",
+    "kind": "theorem",
+    "statement": "2次正方行列 $A = \\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}$ が正則であることと $\\det A = ad - bc \\neq 0$ は同値。正則のとき $A^{-1} = \\dfrac{1}{ad-bc}\\begin{pmatrix} d & -b \\\\ -c & a \\end{pmatrix}$。",
+    "relatedIds": ["regular-matrix-def", "det-2x2", "adjugate-2x2"],
+    "usage": "「正則である/でない」という抽象的な条件を、$ad - bc$ が $0$ か否かという計算可能な条件に言い換える。対偶「正則でない $\\Rightarrow ad - bc = 0$」の形でもよく使う。",
+    "tags": ["行列", "正則", "行列式"]
+  },
+  {
+    "id": "adjugate-2x2",
+    "name": "2次の余因子行列の恒等式",
+    "kind": "property",
+    "statement": "任意の2次正方行列 $A = \\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}$ と $\\tilde{A} = \\begin{pmatrix} d & -b \\\\ -c & a \\end{pmatrix}$ に対して $A\\tilde{A} = \\tilde{A}A = (ad-bc)E$ が成り立つ(成分計算で確かめられる)。",
+    "relatedIds": ["det-2x2", "regular-iff-det"],
+    "usage": "逆行列の公式の根拠。$\\det A = 0$ のときは $A\\tilde{A} = O$ となるので、零因子の構成にも使える。",
+    "tags": ["行列", "行列式"]
+  }
+]

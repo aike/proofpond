@@ -1,0 +1,629 @@
+:root {
+  --bg: #f6f8fa;
+  --panel-bg: #ffffff;
+  --border: #d8dee6;
+  --text: #1f2933;
+  --text-muted: #6b7683;
+  --accent: #2166ac;
+  --accent-soft: #e3edf7;
+  --success: #1a7f4b;
+  --success-soft: #e2f3ea;
+  --warn: #b35c00;
+  --warn-soft: #fdf0e0;
+  --danger: #b0322d;
+  --radius: 8px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Hiragino Sans", "Yu Gothic UI", "Meiryo", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+}
+
+/* ---------- ヘッダー ---------- */
+
+.app-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.7rem 1.2rem;
+  background: var(--panel-bg);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.brand {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.brand-sub {
+  margin-left: 0.6em;
+  font-weight: 400;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.app-nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.app-nav a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.app-nav a:hover {
+  color: var(--accent);
+}
+
+.app-main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 1.2rem 1rem 4rem;
+}
+
+/* ---------- 共通 ---------- */
+
+.mathtext {
+  white-space: pre-wrap;
+}
+
+.math-display {
+  display: block;
+  margin: 0.5em 0;
+  overflow-x: auto;
+}
+
+.katex {
+  white-space: normal;
+}
+
+.lead {
+  color: var(--text-muted);
+}
+
+.panel {
+  background: var(--panel-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.panel-title {
+  margin: 0 0 0.6rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.4rem;
+}
+
+.panel-note {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin: 0.6rem 0 0;
+}
+
+.field-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.notfound {
+  padding: 2rem 0;
+}
+
+/* ---------- ボタン ---------- */
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+.primary-button {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  padding: 0.55rem 1.1rem;
+  font-weight: 600;
+}
+
+.primary-button:hover {
+  filter: brightness(1.1);
+}
+
+.ghost-button {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.3rem 0.8rem;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.ghost-button:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.ghost-button.danger:hover {
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.link-button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin-left: 0.6em;
+  color: var(--accent);
+  text-decoration: underline;
+  font-size: 0.9rem;
+}
+
+.hint-button {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background: var(--accent-soft);
+  color: var(--accent);
+  border: 1px dashed var(--accent);
+  border-radius: var(--radius);
+  padding: 0.55rem;
+  font-weight: 600;
+  margin-top: 0.6rem;
+}
+
+.hint-button:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* ---------- 問題一覧 ---------- */
+
+.problem-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.problem-card {
+  display: block;
+  background: var(--panel-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.2rem;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.15s;
+}
+
+.problem-card:hover {
+  border-color: var(--accent);
+}
+
+.problem-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.problem-card-title {
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.problem-card-statement {
+  margin: 0.4rem 0;
+  color: var(--text-muted);
+  font-size: 0.92rem;
+}
+
+.problem-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.82rem;
+}
+
+.difficulty {
+  color: var(--warn);
+  letter-spacing: 0.1em;
+}
+
+.tag {
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-radius: 999px;
+  padding: 0.05rem 0.6rem;
+}
+
+.status-badge {
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 0.15rem 0.7rem;
+}
+
+.status-todo {
+  background: var(--bg);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+
+.status-doing {
+  background: var(--warn-soft);
+  color: var(--warn);
+}
+
+.status-done {
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+/* ---------- 演習画面 ---------- */
+
+.problem-view-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.8rem;
+}
+
+.problem-view-top a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.statement-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.8rem;
+}
+
+.statement-title {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.statement-body {
+  margin: 0.5rem 0 0;
+  font-size: 1.05rem;
+}
+
+.goal-body {
+  margin: 0;
+  background: var(--accent-soft);
+  border-radius: var(--radius);
+  padding: 0.7rem 0.9rem;
+}
+
+.goal-explanation {
+  margin-top: 0.6rem;
+}
+
+.goal-explanation summary {
+  cursor: pointer;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.goal-explanation summary:hover {
+  color: var(--accent);
+}
+
+.goal-explanation-block {
+  margin: 0.6rem 0 0 0.2rem;
+  padding-left: 0.8rem;
+  border-left: 3px solid var(--border);
+}
+
+.goal-explanation-block h3 {
+  margin: 0 0 0.25rem;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.goal-explanation-block p {
+  margin: 0;
+  font-size: 0.92rem;
+}
+
+/* ---------- 必要知識 ---------- */
+
+.knowledge-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.knowledge-item {
+  padding: 0.35rem 0;
+  border-bottom: 1px dashed var(--border);
+}
+
+.knowledge-item:last-child {
+  border-bottom: none;
+}
+
+.knowledge-item.extra {
+  background: var(--warn-soft);
+  border-radius: var(--radius);
+  padding: 0.35rem 0.5rem;
+}
+
+.knowledge-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.knowledge-check {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+  cursor: pointer;
+}
+
+.knowledge-name.checked {
+  color: var(--text-muted);
+}
+
+.kind-badge {
+  flex-shrink: 0;
+  font-size: 0.72rem;
+  font-weight: 700;
+  border-radius: 4px;
+  padding: 0.1rem 0.45rem;
+}
+
+.kind-definition {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.kind-theorem {
+  background: #efe3f7;
+  color: #6b2fa0;
+}
+
+.kind-property {
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+.kind-technique {
+  background: var(--warn-soft);
+  color: var(--warn);
+}
+
+.kind-example {
+  background: var(--bg);
+  color: var(--text-muted);
+}
+
+.knowledge-card {
+  margin: 0.5rem 0 0.4rem 1.6rem;
+  padding: 0.7rem 0.9rem;
+  background: var(--bg);
+  border-radius: var(--radius);
+  font-size: 0.92rem;
+}
+
+.knowledge-usage,
+.knowledge-related {
+  margin: 0.5rem 0 0;
+}
+
+/* ---------- 中間ゴール ---------- */
+
+.subgoal-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.subgoal {
+  display: flex;
+  gap: 0.6rem;
+  padding: 0.4rem 0.5rem;
+  border-radius: var(--radius);
+}
+
+.subgoal.done {
+  color: var(--success);
+}
+
+.subgoal.done .subgoal-desc {
+  color: var(--text-muted);
+}
+
+.subgoal.current {
+  background: var(--accent-soft);
+  font-weight: 600;
+}
+
+.subgoal.future {
+  color: var(--text-muted);
+  opacity: 0.65;
+}
+
+.subgoal-marker {
+  flex-shrink: 0;
+  width: 1.2em;
+  text-align: center;
+}
+
+.subgoal-desc {
+  margin: 0.2rem 0 0;
+  font-weight: 400;
+  font-size: 0.9rem;
+}
+
+.solution-button {
+  background: transparent;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  padding: 0.2rem 0.7rem;
+  margin-top: 0.35rem;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+.solution-button:hover {
+  border-color: var(--success);
+  color: var(--success);
+}
+
+.solution {
+  margin-top: 0.45rem;
+  border-left: 3px solid var(--success);
+  background: var(--success-soft);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 0.55rem 0.8rem;
+  font-weight: 400;
+  color: var(--text);
+}
+
+.solution-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--success);
+  margin-bottom: 0.15rem;
+}
+
+.solution-text {
+  font-size: 0.92rem;
+}
+
+.current-label {
+  margin-left: 0.6em;
+  font-size: 0.78rem;
+  color: var(--accent);
+}
+
+.subgoal-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.complete-message {
+  margin: 0;
+  color: var(--success);
+  font-weight: 600;
+}
+
+/* ---------- ヒント ---------- */
+
+.hint-context {
+  margin: 0 0 0.4rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.hint-item {
+  border-left: 3px solid var(--accent);
+  background: var(--bg);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 0.55rem 0.8rem;
+  margin-top: 0.5rem;
+}
+
+.hint-level {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0.15rem;
+}
+
+.overall-hints {
+  margin-top: 1rem;
+  border-top: 1px dashed var(--border);
+  padding-top: 0.6rem;
+}
+
+.overall-hints summary {
+  cursor: pointer;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* ---------- 知識一覧 ---------- */
+
+.knowledge-index-section h2 {
+  font-size: 1rem;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.3rem;
+}
+
+.knowledge-index-section ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 0.8rem;
+}
+
+.knowledge-index-item {
+  background: var(--panel-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.9rem 1.1rem;
+}
+
+.knowledge-index-item h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1rem;
+}
+
+/* ---------- レスポンシブ ---------- */
+
+@media (max-width: 480px) {
+  .app-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
+  }
+
+  .app-main {
+    padding: 0.8rem 0.7rem 3rem;
+  }
+
+  .panel {
+    padding: 0.8rem 0.9rem;
+  }
+
+  .knowledge-card {
+    margin-left: 0.4rem;
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "id": "eigen-independent",
+  "title": "固有ベクトルの一次独立性",
+  "statement": "線形写像 $T: V \\to V$ の相異なる固有値 $\\lambda_1 \\neq \\lambda_2$ に属する固有ベクトル $\\mathbf{v}_1, \\mathbf{v}_2$ は一次独立であることを示せ。",
+  "difficulty": 3,
+  "knowledgeIds": [
+    "eigenvalue-def",
+    "linear-independence-def",
+    "linear-relation-technique",
+    "linear-map-def",
+    "contradiction-technique"
+  ],
+  "finalGoal": {
+    "statement": "$c_1\\mathbf{v}_1 + c_2\\mathbf{v}_2 = \\mathbf{0}$ ならば $c_1 = c_2 = 0$ となることを示す。",
+    "why": "「$\\mathbf{v}_1, \\mathbf{v}_2$ が一次独立である」という言葉の定義そのものが、「$c_1\\mathbf{v}_1 + c_2\\mathbf{v}_2 = \\mathbf{0}$ ならば $c_1 = c_2 = 0$」という含意である。つまりこの含意を示すことと一次独立を示すことは、定義により完全に同じことである。「一次独立」という抽象的な性質が、この言い換えによって「関係式から係数を決定する」という具体的な代数の問題に変わる。",
+    "howToFind": "必要な知識は「一次独立の定義」と、定石「一次関係式から始める」。発想方法は、まず「一次独立を示せ」という要求を定義に立ち返って含意の形に翻訳すること。次に、含意「$c_1\\mathbf{v}_1 + c_2\\mathbf{v}_2 = \\mathbf{0} \\Rightarrow c_1 = c_2 = 0$」を示すには、仮定である一次関係式をまず紙に書き(これが出発点)、そこから係数の情報を引き出す手段を探す。この問題では「使える道具は $T$ と固有ベクトルの式しかない」ので、関係式に $T$ を適用してみる、という発想が自然に出てくる。"
+  },
+  "subgoals": [
+    {
+      "id": "setup",
+      "title": "仮定を整理して書く",
+      "description": "使える仮定をすべて書き出して、証明の材料をそろえる。",
+      "hints": [
+        { "level": 1, "text": "固有値・固有ベクトルの定義から、どんな式と条件が使える?" },
+        { "level": 2, "text": "使える仮定は $T(\\mathbf{v}_1) = \\lambda_1\\mathbf{v}_1$、$T(\\mathbf{v}_2) = \\lambda_2\\mathbf{v}_2$、$\\lambda_1 \\neq \\lambda_2$、そして $\\mathbf{v}_1 \\neq \\mathbf{0}$、$\\mathbf{v}_2 \\neq \\mathbf{0}$(固有ベクトルは零でない)。" }
+      ],
+      "solution": "仮定より次が使える。\n・$T(\\mathbf{v}_1) = \\lambda_1\\mathbf{v}_1$、$T(\\mathbf{v}_2) = \\lambda_2\\mathbf{v}_2$\n・$\\lambda_1 \\neq \\lambda_2$\n・$\\mathbf{v}_1 \\neq \\mathbf{0}$、$\\mathbf{v}_2 \\neq \\mathbf{0}$(固有ベクトルは零ベクトルでない)"
+    },
+    {
+      "id": "relation",
+      "title": "一次関係式をおく",
+      "hints": [
+        { "level": 1, "text": "一次独立の証明の出発点は決まっている。「一次関係式から始める」を参照。" },
+        { "level": 2, "text": "$c_1\\mathbf{v}_1 + c_2\\mathbf{v}_2 = \\mathbf{0}$ …(*) とおき、ここから $c_1 = c_2 = 0$ を導くのが目標。" }
+      ],
+      "solution": "$c_1, c_2 \\in \\mathbb{R}$ に対して\n$$c_1\\mathbf{v}_1 + c_2\\mathbf{v}_2 = \\mathbf{0} \\quad (*)$$\nが成り立つとする。一次独立の定義より、ここから $c_1 = c_2 = 0$ を導けばよい。"
+    },
+    {
+      "id": "apply-t",
+      "title": "関係式に T を適用して第2の式を作る",
+      "description": "式が1本では係数を決められないので、もう1本作る。",
+      "hints": [
+        { "level": 1, "text": "式 (*) 1本だけでは $c_1, c_2$ を決められない。独立なもう1本の式を作る方法は?" },
+        { "level": 2, "text": "(*) の両辺に $T$ を適用してみる。線形性と固有ベクトルの式を使うと、新しい式が得られる。" },
+        { "level": 3, "text": "$T(c_1\\mathbf{v}_1 + c_2\\mathbf{v}_2) = c_1 T(\\mathbf{v}_1) + c_2 T(\\mathbf{v}_2) = c_1\\lambda_1\\mathbf{v}_1 + c_2\\lambda_2\\mathbf{v}_2 = \\mathbf{0}$ …(**)" }
+      ],
+      "solution": "(*) の両辺に $T$ を適用する。$T$ の線形性と $T(\\mathbf{0}) = \\mathbf{0}$ より\n$$T(c_1\\mathbf{v}_1 + c_2\\mathbf{v}_2) = c_1 T(\\mathbf{v}_1) + c_2 T(\\mathbf{v}_2) = c_1\\lambda_1\\mathbf{v}_1 + c_2\\lambda_2\\mathbf{v}_2 = \\mathbf{0} \\quad (**)$$\nが得られる。"
+    },
+    {
+      "id": "eliminate",
+      "title": "2つの式から片方の項を消去する",
+      "hints": [
+        { "level": 1, "text": "(*) と (**) を連立方程式とみて、$\\mathbf{v}_1$ の項か $\\mathbf{v}_2$ の項を消すことを考える。" },
+        { "level": 2, "text": "(*) を $\\lambda_1$ 倍して、(**) から引いてみる。" },
+        { "level": 3, "text": "$(**) - \\lambda_1 \\times (*)$ を計算すると $c_2(\\lambda_2 - \\lambda_1)\\mathbf{v}_2 = \\mathbf{0}$。ここで使える仮定は?" },
+        { "level": 4, "text": "$\\lambda_2 - \\lambda_1 \\neq 0$ かつ $\\mathbf{v}_2 \\neq \\mathbf{0}$ だから、$c_2 = 0$ でなければならない。" }
+      ],
+      "solution": "(**) から (*) の $\\lambda_1$ 倍を引くと\n$$c_2(\\lambda_2 - \\lambda_1)\\mathbf{v}_2 = \\mathbf{0}$$\nここで $\\lambda_1 \\neq \\lambda_2$ より $\\lambda_2 - \\lambda_1 \\neq 0$、また $\\mathbf{v}_2 \\neq \\mathbf{0}$ であるから、$c_2 = 0$ でなければならない。"
+    },
+    {
+      "id": "conclude",
+      "title": "残りの係数も 0 であることを示して結論",
+      "hints": [
+        { "level": 1, "text": "$c_2 = 0$ を (*) に戻すとどうなる?" },
+        { "level": 2, "text": "(*) は $c_1\\mathbf{v}_1 = \\mathbf{0}$ になる。$\\mathbf{v}_1 \\neq \\mathbf{0}$ だから?" },
+        { "level": 3, "text": "$c_1 = 0$。よって $c_1 = c_2 = 0$ が示され、$\\mathbf{v}_1, \\mathbf{v}_2$ は一次独立である。" }
+      ],
+      "solution": "$c_2 = 0$ を (*) に代入すると $c_1\\mathbf{v}_1 = \\mathbf{0}$。$\\mathbf{v}_1 \\neq \\mathbf{0}$ より $c_1 = 0$。\nよって $c_1 = c_2 = 0$ となり、$\\mathbf{v}_1, \\mathbf{v}_2$ は一次独立である。$\\blacksquare$"
+    }
+  ],
+  "overallHints": [
+    { "level": 1, "text": "一次関係式をおき、それに $T$ を適用して式を増やし、連立して係数を消去する——固有ベクトル系の証明の典型パターン。" },
+    { "level": 2, "text": "鍵は「(*) に $T$ を適用した式」と「(*) の $\\lambda_1$ 倍」の差をとること。$\\lambda_1 \\neq \\lambda_2$ と「固有ベクトル $\\neq \\mathbf{0}$」がどこで効くかに注目。" }
+  ],
+  "tags": ["固有値", "一次独立"]
+}

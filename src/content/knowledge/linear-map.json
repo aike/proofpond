@@ -1,0 +1,65 @@
+[
+  {
+    "id": "linear-map-def",
+    "name": "線形写像の定義",
+    "kind": "definition",
+    "statement": "写像 $T: V \\to W$ が線形写像であるとは、任意の $\\mathbf{u}, \\mathbf{v} \\in V$ と $c \\in \\mathbb{R}$ に対して\n$T(\\mathbf{u} + \\mathbf{v}) = T(\\mathbf{u}) + T(\\mathbf{v})$ かつ $T(c\\mathbf{u}) = cT(\\mathbf{u})$\nが成り立つこと。",
+    "relatedIds": ["linear-map-zero", "kernel-def"],
+    "usage": "証明中で $T(\\mathbf{x} - \\mathbf{y}) = T(\\mathbf{x}) - T(\\mathbf{y})$ のような変形を正当化する根拠になる。",
+    "tags": ["線形写像"]
+  },
+  {
+    "id": "injective-def",
+    "name": "単射の定義",
+    "kind": "definition",
+    "statement": "任意の $\\mathbf{x}, \\mathbf{y}$ について $T(\\mathbf{x}) = T(\\mathbf{y}) \\Rightarrow \\mathbf{x} = \\mathbf{y}$ が成り立つとき、$T$ は単射という。対偶「$\\mathbf{x} \\neq \\mathbf{y} \\Rightarrow T(\\mathbf{x}) \\neq T(\\mathbf{y})$」と同値。",
+    "relatedIds": ["kernel-def"],
+    "usage": "単射性を示すときは $T(\\mathbf{x}) = T(\\mathbf{y})$ を仮定して $\\mathbf{x} = \\mathbf{y}$ を導くのが定石。",
+    "tags": ["線形写像", "写像"]
+  },
+  {
+    "id": "kernel-def",
+    "name": "核(Ker)の定義",
+    "kind": "definition",
+    "statement": "線形写像 $T: V \\to W$ の核とは\n$\\operatorname{Ker} T = \\{\\mathbf{v} \\in V \\mid T(\\mathbf{v}) = \\mathbf{0}\\}$\nのこと。$\\operatorname{Ker} T$ は $V$ の部分空間になる。",
+    "relatedIds": ["linear-map-def", "injective-def", "subspace-def"],
+    "usage": "単射性・次元定理など、線形写像の性質は Ker を通して調べることが多い。",
+    "tags": ["線形写像", "核"]
+  },
+  {
+    "id": "linear-map-zero",
+    "name": "線形写像は零を零に写す",
+    "kind": "property",
+    "statement": "線形写像 $T$ について $T(\\mathbf{0}) = \\mathbf{0}$ が成り立つ。実際、$T(\\mathbf{0}) = T(0 \\cdot \\mathbf{0}) = 0 \\cdot T(\\mathbf{0}) = \\mathbf{0}$。",
+    "relatedIds": ["linear-map-def", "kernel-def"],
+    "usage": "$\\mathbf{0} \\in \\operatorname{Ker} T$ が常に成り立つことの根拠。",
+    "tags": ["線形写像"]
+  },
+  {
+    "id": "iff-split-technique",
+    "name": "同値証明の分割",
+    "kind": "technique",
+    "statement": "「$P \\iff Q$ を示せ」という問題は、「$P \\Rightarrow Q$」と「$Q \\Rightarrow P$」の2つの証明に分ける。それぞれの方向で仮定と結論が入れ替わることに注意する。",
+    "relatedIds": [],
+    "usage": "同値(⇔)を示す問題全般。証明の冒頭で「(⇒) と (⇐) を示す」と宣言すると見通しがよい。",
+    "tags": ["証明手順"]
+  },
+  {
+    "id": "subtract-technique",
+    "name": "差をとって零に帰着",
+    "kind": "technique",
+    "statement": "$T(\\mathbf{x}) = T(\\mathbf{y})$ という条件は、線形性により $T(\\mathbf{x} - \\mathbf{y}) = \\mathbf{0}$、すなわち $\\mathbf{x} - \\mathbf{y} \\in \\operatorname{Ker} T$ と言い換えられる。",
+    "relatedIds": ["linear-map-def", "kernel-def"],
+    "usage": "単射性と Ker を結びつける橋渡し。「2つの値が等しい」を「差が零」に直すのは線形代数全般の定石。",
+    "tags": ["線形写像", "証明手順"]
+  },
+  {
+    "id": "contradiction-technique",
+    "name": "背理法",
+    "kind": "technique",
+    "statement": "結論を否定して矛盾を導く証明法。「一次独立である」ことの証明では、係数のどれかが $0$ でないと仮定して矛盾を導く形でよく使われる。",
+    "relatedIds": [],
+    "usage": "直接示しにくい否定的な主張(〜でない、ただ1つ、など)の証明。",
+    "tags": ["証明手順"]
+  }
+]

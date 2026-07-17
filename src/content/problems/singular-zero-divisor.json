@@ -1,0 +1,77 @@
+{
+  "id": "singular-zero-divisor",
+  "title": "正則でない行列と零因子",
+  "statement": "2次正方行列 $A$ は $A \\neq O$ かつ正則でないとする($O$ は零行列)。このとき、$AB = O$ を満たす2次正方行列 $B \\neq O$ が存在することを示せ。",
+  "difficulty": 3,
+  "knowledgeIds": [
+    "regular-matrix-def",
+    "zero-matrix",
+    "det-2x2",
+    "regular-iff-det",
+    "adjugate-2x2",
+    "construction-technique"
+  ],
+  "finalGoal": {
+    "statement": "$A = \\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}$ に対して、$AB = O$ かつ $B \\neq O$ を満たす行列 $B$ を具体的に1つ構成し、2条件を検証する。",
+    "why": "「存在することを示せ」という主張は、条件を満たす対象を実際に1つ提示し、それが条件を満たすことを確かめれば、それだけで完全な証明になる(「存在の証明は具体的な構成で」)。構成した $B$ について検証すべきは (1) $AB = O$、(2) $B \\neq O$ の2つであり、この2つを確かめ終えた時点で問題の主張はすべて示されたことになる。どうやって $B$ を見つけたかを説明する義務はない。",
+    "howToFind": "必要な知識は「存在の証明は具体的な構成で」という定石、「正則性と行列式(2次)」、「2次の余因子行列の恒等式」。発想方法は2段階ある。第一に、仮定「正則でない」を定理の対偶で $ad - bc = 0$ という計算可能な等式に言い換えること——抽象的な仮定は、まず使える形に翻訳する。第二に、「$A$ に掛けると $ad - bc$ が現れる行列」を探すこと。逆行列の公式の分子 $\\begin{pmatrix} d & -b \\\\ -c & a \\end{pmatrix}$ がまさにそれで、$A$ との積が $(ad-bc)E$ になるから、行列式が $0$ という仮定がちょうど「積が零行列」という結論に変わる。"
+  },
+  "subgoals": [
+    {
+      "id": "setup",
+      "title": "仮定と示すべきことを整理する",
+      "description": "存在証明であることを見抜き、方針を決める。",
+      "hints": [
+        { "level": 1, "text": "「存在することを示せ」というタイプの問題では、何をすれば証明になるだろうか。" },
+        { "level": 2, "text": "「存在の証明は具体的な構成で」: 条件を満たす $B$ を実際に1つ作って見せればよい。仮定「$A \\neq O$」「$A$ は正則でない」から何が引き出せるかも整理しておこう。" }
+      ],
+      "solution": "仮定: $A$ は2次正方行列で、$A \\neq O$ かつ正則でない。\n示すべきこと: $AB = O$ かつ $B \\neq O$ を満たす2次正方行列 $B$ が少なくとも1つ存在すること。\n存在の証明なので、条件を満たす $B$ を具体的に構成し、2条件を検証する方針をとる。"
+    },
+    {
+      "id": "det-zero",
+      "title": "仮定を ad − bc = 0 に言い換える",
+      "hints": [
+        { "level": 1, "text": "「正則でない」という抽象的な仮定を、計算に使える形の条件に言い換えたい。2次行列の正則性を判定する道具は?" },
+        { "level": 2, "text": "定理「正則性と行列式(2次)」: $A$ が正則 $\\iff ad - bc \\neq 0$。この対偶を考える。" },
+        { "level": 3, "text": "対偶より、$A$ が正則でないならば $ad - bc = 0$。以降はこの等式が使える。" }
+      ],
+      "solution": "$A = \\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}$ とおく。定理「2次正方行列 $A$ が正則 $\\iff \\det A = ad - bc \\neq 0$」の対偶により、$A$ が正則でないことから\n$$ad - bc = 0$$\nが成り立つ。"
+    },
+    {
+      "id": "construct",
+      "title": "B を構成して AB = O を確かめる",
+      "description": "$ad - bc = 0$ が効く形の $B$ を探す。",
+      "hints": [
+        { "level": 1, "text": "$ad - bc = 0$ を活かせるような $B$ の形を探す。$A$ に掛けると $ad - bc$ が現れる行列に心当たりは?" },
+        { "level": 2, "text": "逆行列の公式の分子に現れる行列 $\\begin{pmatrix} d & -b \\\\ -c & a \\end{pmatrix}$ を思い出そう(「2次の余因子行列の恒等式」)。" },
+        { "level": 3, "text": "$B = \\begin{pmatrix} d & -b \\\\ -c & a \\end{pmatrix}$ とおいて $AB$ を成分計算すると $AB = (ad-bc)E$ になる。前のステップの等式を使うと?" },
+        { "level": 4, "text": "$AB = (ad-bc)E = 0 \\cdot E = O$。よってこの $B$ は $AB = O$ を満たす。" }
+      ],
+      "solution": "$B = \\begin{pmatrix} d & -b \\\\ -c & a \\end{pmatrix}$ とおく。成分計算により\n$$AB = \\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}\\begin{pmatrix} d & -b \\\\ -c & a \\end{pmatrix} = \\begin{pmatrix} ad-bc & 0 \\\\ 0 & ad-bc \\end{pmatrix} = (ad-bc)E$$\n前ステップの $ad - bc = 0$ より $AB = O$ である。"
+    },
+    {
+      "id": "b-nonzero",
+      "title": "B ≠ O を確かめる",
+      "hints": [
+        { "level": 1, "text": "構成した $B$ が零行列でないことも検証が必要。$B = O$ になるのはどんなときか?" },
+        { "level": 2, "text": "$B = O$ となるのは $a = b = c = d = 0$、つまり $A = O$ のときに限る。まだ使っていない仮定は?" },
+        { "level": 3, "text": "仮定 $A \\neq O$ より $a, b, c, d$ の少なくとも1つは $0$ でない。その成分は(符号を除いて)$B$ にも現れるので $B \\neq O$。" }
+      ],
+      "solution": "$B = O$ となるのは $d = -b = -c = a = 0$、すなわち $A = O$ のときに限る。仮定より $A \\neq O$ であるから、$B \\neq O$ である。"
+    },
+    {
+      "id": "conclude",
+      "title": "結論をまとめる",
+      "hints": [
+        { "level": 1, "text": "構成した $B$ が「$AB = O$」「$B \\neq O$」の両方を満たすことを確認して締めくくる。" },
+        { "level": 2, "text": "「以上より、$B = \\begin{pmatrix} d & -b \\\\ -c & a \\end{pmatrix}$ が求める行列であり、主張が示された」と結ぶ。" }
+      ],
+      "solution": "以上より、$B = \\begin{pmatrix} d & -b \\\\ -c & a \\end{pmatrix}$ は $B \\neq O$ かつ $AB = O$ を満たす。したがって、$O$ でない2次正方行列 $A$ が正則でなければ、$AB = O$ を満たす $O$ でない行列 $B$ が存在する。$\\blacksquare$"
+    }
+  ],
+  "overallHints": [
+    { "level": 1, "text": "存在証明は「作って見せる」のが基本。仮定「正則でない」を $ad - bc = 0$ という計算可能な等式に言い換え、それが効く形の $B$ を構成する。" },
+    { "level": 2, "text": "鍵は逆行列の公式の分子 $\\begin{pmatrix} d & -b \\\\ -c & a \\end{pmatrix}$。$A$ との積が $(ad-bc)E$ になるので、行列式が $0$ ならその積はちょうど零行列になる。" }
+  ],
+  "tags": ["行列", "正則", "行列式", "存在証明"]
+}

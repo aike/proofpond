@@ -1,0 +1,29 @@
+[
+  {
+    "id": "eigenvalue-def",
+    "name": "固有値・固有ベクトルの定義",
+    "kind": "definition",
+    "statement": "線形写像 $T: V \\to V$ に対して $T(\\mathbf{v}) = \\lambda\\mathbf{v}$ を満たす $\\mathbf{v} \\neq \\mathbf{0}$ が存在するとき、$\\lambda$ を $T$ の固有値、$\\mathbf{v}$ を $\\lambda$ に属する固有ベクトルという。固有ベクトルは零ベクトルではないことに注意。",
+    "relatedIds": ["linear-map-def"],
+    "usage": "固有ベクトルが登場する証明では「$T(\\mathbf{v}) = \\lambda\\mathbf{v}$」と「$\\mathbf{v} \\neq \\mathbf{0}$」の両方が使える仮定になる。",
+    "tags": ["固有値"]
+  },
+  {
+    "id": "linear-independence-def",
+    "name": "一次独立の定義",
+    "kind": "definition",
+    "statement": "$c_1\\mathbf{v}_1 + \\cdots + c_k\\mathbf{v}_k = \\mathbf{0}$ ならば $c_1 = \\cdots = c_k = 0$ が成り立つとき、$\\mathbf{v}_1, \\ldots, \\mathbf{v}_k$ は一次独立であるという。",
+    "relatedIds": ["linear-relation-technique"],
+    "usage": "一次独立の証明は「一次関係式をおいて、係数がすべて 0 になることを示す」に帰着する。",
+    "tags": ["一次独立"]
+  },
+  {
+    "id": "linear-relation-technique",
+    "name": "一次関係式から始める",
+    "kind": "technique",
+    "statement": "一次独立を示すには、まず $c_1\\mathbf{v}_1 + c_2\\mathbf{v}_2 = \\mathbf{0}$ とおく。この式に写像を適用したり、式どうしを組み合わせたりして係数の情報を引き出す。",
+    "relatedIds": ["linear-independence-def"],
+    "usage": "一次独立性の証明の出発点。式が1本で足りなければ、写像の適用や係数倍で式を増やして連立させる。",
+    "tags": ["一次独立", "証明手順"]
+  }
+]

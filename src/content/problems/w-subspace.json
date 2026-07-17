@@ -1,0 +1,69 @@
+{
+  "id": "w-subspace",
+  "title": "部分空間であることの証明",
+  "statement": "$W = \\{(x, y, z) \\in \\mathbb{R}^3 \\mid x + y + z = 0\\}$ が $\\mathbb{R}^3$ の部分空間であることを示せ。",
+  "difficulty": 1,
+  "knowledgeIds": [
+    "subspace-def",
+    "zero-vector",
+    "closed-add",
+    "closed-scalar",
+    "subspace-check-technique"
+  ],
+  "finalGoal": {
+    "statement": "$W$ が部分空間の3条件、(i) $\\mathbf{0} \\in W$、(ii) 加法閉性、(iii) スカラー倍閉性、をすべて満たすことを示す。",
+    "why": "「部分空間である」とは、定義により「この3条件を満たす部分集合である」ということに他ならない。数学において、ある対象が「〜である」ことを証明するとは、「〜」の定義に書かれた条件を満たすことを確かめることである。したがって3条件をすべて検証し終えた瞬間に、定義に照らして「$W$ は部分空間である」と結論でき、それがそのまま問題の証明になる。逆に言えば、3条件の検証以外に示すべきことは何も残っていない。",
+    "howToFind": "必要な知識は「部分空間の定義」ただ1つ。発想方法は、証明問題の最初の定石である「示すべき語の定義に立ち返る」こと。「部分空間であることを示せ」と言われたら、まず『部分空間とは何だったか』を思い出し(思い出せなければ教科書で定義を確認し)、問題文の主張を定義に含まれる検証可能な条件のリストに書き換える。この翻訳によって、抽象的な主張が「零ベクトルを代入する」「和を計算する」「スカラー倍を計算する」という具体的な作業に変わる。"
+  },
+  "subgoals": [
+    {
+      "id": "write-def",
+      "title": "部分空間の定義(3条件)を書く",
+      "description": "何を確かめれば「部分空間」と言えるのか、条件を漏れなく書き出す。",
+      "hints": [
+        { "level": 1, "text": "証明の最初の一歩は、示すべき性質の定義を正確に書くこと。" },
+        { "level": 2, "text": "「部分空間の定義」の知識カードを開いて、3つの条件を自分のノートに書き写してみよう。" },
+        { "level": 3, "text": "確かめるべきは (i) $\\mathbf{0} \\in W$、(ii) $\\mathbf{u}, \\mathbf{v} \\in W \\Rightarrow \\mathbf{u} + \\mathbf{v} \\in W$、(iii) $\\mathbf{u} \\in W,\\ c \\in \\mathbb{R} \\Rightarrow c\\mathbf{u} \\in W$ の3つ。" }
+      ],
+      "solution": "$W$ が $\\mathbb{R}^3$ の部分空間であることを示すには、次の3条件を確かめればよい。\n(i) $\\mathbf{0} \\in W$\n(ii) $\\mathbf{u}, \\mathbf{v} \\in W \\Rightarrow \\mathbf{u} + \\mathbf{v} \\in W$(加法閉性)\n(iii) $\\mathbf{u} \\in W,\\ c \\in \\mathbb{R} \\Rightarrow c\\mathbf{u} \\in W$(スカラー倍閉性)"
+    },
+    {
+      "id": "zero-in-w",
+      "title": "零ベクトルが W に属することを示す",
+      "hints": [
+        { "level": 1, "text": "$\\mathbb{R}^3$ の零ベクトルを成分で書くと?" },
+        { "level": 2, "text": "$(0, 0, 0)$ が $W$ の条件式 $x + y + z = 0$ を満たすか、代入して確かめる。" },
+        { "level": 3, "text": "$\\mathbf{0} = (0, 0, 0)$ について $0 + 0 + 0 = 0$ なので条件式が成り立つ、と書けばよい。" }
+      ],
+      "solution": "(i) $\\mathbb{R}^3$ の零ベクトルは $\\mathbf{0} = (0, 0, 0)$ である。$0 + 0 + 0 = 0$ より $\\mathbf{0}$ は $W$ の条件式を満たすので、$\\mathbf{0} \\in W$。"
+    },
+    {
+      "id": "closed-under-add",
+      "title": "加法で閉じていることを示す",
+      "description": "$W$ の任意の2つの元の和が、また $W$ に入ることを示す。",
+      "hints": [
+        { "level": 1, "text": "$W$ の一般の元を2つ、文字でおくところから始める。" },
+        { "level": 2, "text": "$\\mathbf{u} = (x_1, y_1, z_1)$、$\\mathbf{v} = (x_2, y_2, z_2)$ とおくと、$W$ の元であることから何が言える? その情報を式で書き出そう。" },
+        { "level": 3, "text": "仮定は $x_1 + y_1 + z_1 = 0$ と $x_2 + y_2 + z_2 = 0$。和 $\\mathbf{u} + \\mathbf{v} = (x_1 + x_2,\\ y_1 + y_2,\\ z_1 + z_2)$ の成分の総和が、この2式からどうなるか計算する。" },
+        { "level": 4, "text": "$(x_1 + x_2) + (y_1 + y_2) + (z_1 + z_2) = (x_1 + y_1 + z_1) + (x_2 + y_2 + z_2) = 0 + 0 = 0$。よって $\\mathbf{u} + \\mathbf{v}$ は $W$ の条件式を満たし、$\\mathbf{u} + \\mathbf{v} \\in W$。" }
+      ],
+      "solution": "(ii) $\\mathbf{u} = (x_1, y_1, z_1) \\in W$、$\\mathbf{v} = (x_2, y_2, z_2) \\in W$ とすると、$x_1 + y_1 + z_1 = 0$ かつ $x_2 + y_2 + z_2 = 0$ が成り立つ。\n$\\mathbf{u} + \\mathbf{v} = (x_1 + x_2,\\ y_1 + y_2,\\ z_1 + z_2)$ について、\n$$(x_1 + x_2) + (y_1 + y_2) + (z_1 + z_2) = (x_1 + y_1 + z_1) + (x_2 + y_2 + z_2) = 0 + 0 = 0$$\nよって $\\mathbf{u} + \\mathbf{v}$ は $W$ の条件式を満たし、$\\mathbf{u} + \\mathbf{v} \\in W$ である。"
+    },
+    {
+      "id": "closed-under-scalar",
+      "title": "スカラー倍で閉じていることを示す",
+      "hints": [
+        { "level": 1, "text": "加法閉性と同じ流れ。今度は $c\\mathbf{u}$ について条件式を確かめる。" },
+        { "level": 2, "text": "$\\mathbf{u} = (x, y, z) \\in W$(つまり $x + y + z = 0$)と $c \\in \\mathbb{R}$ に対して、$c\\mathbf{u}$ の成分を書き出す。" },
+        { "level": 3, "text": "$c\\mathbf{u} = (cx, cy, cz)$ の成分の総和は $cx + cy + cz = c(x + y + z)$。仮定を使うと?" },
+        { "level": 4, "text": "$c(x + y + z) = c \\cdot 0 = 0$ なので $c\\mathbf{u} \\in W$。3条件がすべて確認できたので、$W$ は $\\mathbb{R}^3$ の部分空間である、と結んで証明完了。" }
+      ],
+      "solution": "(iii) $\\mathbf{u} = (x, y, z) \\in W$(すなわち $x + y + z = 0$)と $c \\in \\mathbb{R}$ に対して、$c\\mathbf{u} = (cx, cy, cz)$ であり、\n$$cx + cy + cz = c(x + y + z) = c \\cdot 0 = 0$$\nよって $c\\mathbf{u} \\in W$ である。\n以上 (i)(ii)(iii) より、$W$ は $\\mathbb{R}^3$ の部分空間である。$\\blacksquare$"
+    }
+  ],
+  "overallHints": [
+    { "level": 1, "text": "これは部分空間判定の典型問題。定義の3条件を1つずつ機械的に確認すればよい。" },
+    { "level": 2, "text": "「部分空間判定の典型手順」の知識カードにある手順①②③が、そのまま証明の骨組みになる。" }
+  ],
+  "tags": ["部分空間", "ベクトル空間"]
+}
